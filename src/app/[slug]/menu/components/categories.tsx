@@ -24,11 +24,11 @@ type MenuCategoriesWithProducts = Prisma.MenuCategoryGetPayload<{
 }>;
 
 const RestaurantCategories = ({restaurant}: RestaurantCategoriesProps) => {
-    const [selectedCategory, setSelectedCategory] = useState<MenuCategoryWithProducts>(restaurant.menuCategories[0]);
-    const handleCategoryClick = (category: MenuCategoryWithProducts) => {
+    const [selectedCategory, setSelectedCategory] = useState<MenuCategoriesWithProducts>(restaurant.menuCategories[0]);
+    const handleCategoryClick = (category: MenuCategoriesWithProducts) => {
         setSelectedCategory(category);
     }
-    const getCategoryButtonVariant = (category: MenuCategoryWithProducts) => {
+    const getCategoryButtonVariant = (category: MenuCategoriesWithProducts) => {
         return selectedCategory.id === category.id ? "default" : "secondary"
     }
     return (  
