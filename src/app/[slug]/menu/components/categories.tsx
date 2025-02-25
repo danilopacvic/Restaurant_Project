@@ -1,6 +1,7 @@
+/* eslint-disable simple-import-sort/imports */
 "use client";
 
-import { MenuCategory, Prisma } from "@prisma/client";
+import { Prisma } from "@prisma/client";
 import Image from "next/image";
 import { ClockIcon } from "lucide-react";
 import { useContext, useState } from "react";

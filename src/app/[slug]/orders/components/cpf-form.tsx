@@ -1,9 +1,12 @@
 "use client";
 
-import { z } from "zod";
-import { isValidCpf, removeCpfPunctuation } from "../../menu/helpers/cpf";
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { usePathname, useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { PatternFormat } from "react-number-format";
+import { z } from "zod";
+
+import { Button } from "@/components/ui/button";
 import {
     Drawer,
     DrawerClose,
@@ -12,13 +15,11 @@ import {
     DrawerFooter,
     DrawerHeader,
     DrawerTitle,
-    DrawerTrigger,
   } from "@/components/ui/drawer"
-import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { PatternFormat } from "react-number-format";
-import { usePathname, useRouter } from "next/navigation";
+
+import { isValidCpf, removeCpfPunctuation } from "../../menu/helpers/cpf";
 
 const formSchema = z.object({
     cpf: z.string().trim().min(1, {
